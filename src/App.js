@@ -177,43 +177,61 @@ function App() {
           <div className="main__card">
             <div>
               <input
+              readOnly
                 value={inputOne}
                 onClick={() => playAGame(inputOne, setInputOne)}
+
               />
               <input
+              readOnly
+
                 value={inputTwo}
                 onClick={() => playAGame(inputTwo, setInputTwo)}
               />
               <input
+              readOnly
+
                 value={inputThree}
                 onClick={() => playAGame(inputThree, setInputThree)}
               />
             </div>
             <div>
               <input
+              readOnly
+
                 value={inputFour}
                 onClick={() => playAGame(inputFour, setInputFour)}
               />
               <input
                 value={inputFive}
+              readOnly
+
                 onClick={() => playAGame(inputFive, setInputFive)}
               />
               <input
                 value={inputSix}
+              readOnly
+
                 onClick={() =>playAGame(inputSix, setInputSix)}
               />
             </div>
             <div>
               <input
                 value={inputSeven}
+              readOnly
+
                 onClick={() =>playAGame(inputSeven, setInputSeven)}
               />
               <input
                 value={inputEight}
+              readOnly
+
                 onClick={() =>playAGame(inputEight, setInputEight)}
               />
               <input
                 value={inputNine}
+              readOnly
+
                 onClick={() => playAGame(inputNine, setInputNine)}
               />
             </div>
