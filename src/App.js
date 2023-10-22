@@ -16,6 +16,9 @@ function App() {
   const [inputEight, setInputEight] = useState("");
   const [inputNine, setInputNine] = useState("");
 
+  const [xTotalScore, setXTotalScore] = useState(0);
+  const [oTotalScore, setOTotalScore] = useState(0);
+
   const clerInputStatesAfterAWinFunc = () => {
     setInputOne("");
     setInputTwo("");
@@ -28,7 +31,7 @@ function App() {
     setInputNine("");
   };
 
-  const playAGame = (input, setInput)=>{
+  const playAGame = (input, setInput) => {
     if (input !== "") {
       return;
     }
@@ -39,94 +42,102 @@ function App() {
       setInput("o");
       setNextToPlay("x");
     }
-  }
+  };
+
 
   useEffect(() => {
-    // console.log(`Input One = ${inputOne}`)
-    // console.log(`Input Two = ${inputTwo}`)
-    // console.log(`Input Three= ${inputThree}`)
-    // console.log(`Input Four= ${inputFour}`)
-    // console.log(`Input Five = ${inputFive}`)
-    // console.log(`Input Six = ${inputSix}`)
-    // console.log(`Input Seven= ${inputSeven}`)
-    // console.log(`Input Eight = ${inputEight}`)
-    // console.log(`Input Nine = ${inputNine}`)
-    // if(inputOne !== "" && inputTwo !== "" && inputThree !== "" && inputFour !== "" && inputFive !== "" && inputSix !== "" && inputSeven !== "" && inputEight !== "" && inputNine !== ""){
-    //   console.log("Game over")
-    //   setWinnersMessage("No One Wins!")
-    //   setGameIsOver(true)
-    //   setInputOne("")
-    //   setInputTwo("")
-    //   setInputThree("")
-    //   setInputFour("")
-    //   setInputFive("")
-    //   setInputSix("")
-    //   setInputSeven("")
-    //   setInputEight("")
-    //   setInputNine("")
-    // }
     if (inputOne === "x" && inputTwo === "x" && inputThree === "x") {
+      setXTotalScore((prevScore) => prevScore + 1);
       setGameIsOver(true);
       setWinnersMessage("X Wins!!!");
       clerInputStatesAfterAWinFunc();
     } else if (inputOne === "x" && inputFour === "x" && inputSeven === "x") {
+      setXTotalScore((prevScore) => prevScore + 1);
+
       setGameIsOver(true);
       setWinnersMessage("X Wins!!!");
       clerInputStatesAfterAWinFunc();
     } else if (inputOne === "x" && inputFive === "x" && inputNine === "x") {
+      setXTotalScore((prevScore) => prevScore + 1);
+
       setGameIsOver(true);
       setWinnersMessage("X Wins!!!");
       clerInputStatesAfterAWinFunc();
     } else if (inputTwo === "x" && inputFive === "x" && inputEight === "x") {
+      setXTotalScore((prevScore) => prevScore + 1);
+
       setGameIsOver(true);
       setWinnersMessage("X Wins!!!");
       clerInputStatesAfterAWinFunc();
     } else if (inputThree === "x" && inputSix === "x" && inputNine === "x") {
+      setXTotalScore((prevScore) => prevScore + 1);
+
       setGameIsOver(true);
       setWinnersMessage("X Wins!!!");
       clerInputStatesAfterAWinFunc();
     } else if (inputThree === "x" && inputFive === "x" && inputSeven === "x") {
+      setXTotalScore((prevScore) => prevScore + 1);
+
       setGameIsOver(true);
       setWinnersMessage("X Wins!!!");
       clerInputStatesAfterAWinFunc();
     } else if (inputFour === "x" && inputFive === "x" && inputSix === "x") {
+      setXTotalScore((prevScore) => prevScore + 1);
+
       setGameIsOver(true);
       setWinnersMessage("X Wins!!!");
       clerInputStatesAfterAWinFunc();
     } else if (inputSeven === "x" && inputEight === "x" && inputNine === "x") {
+      setXTotalScore((prevScore) => prevScore + 1);
+
       setGameIsOver(true);
       setWinnersMessage("X Wins!!!");
       clerInputStatesAfterAWinFunc();
     } else if (inputOne === "o" && inputTwo === "o" && inputThree === "o") {
+      setOTotalScore((prevScore) => prevScore + 1);
+
       setGameIsOver(true);
       setWinnersMessage("o Wins!!!");
       clerInputStatesAfterAWinFunc();
     } else if (inputOne === "o" && inputFour === "o" && inputSeven === "o") {
       setGameIsOver(true);
+      setOTotalScore((prevScore) => prevScore + 1);
+
       setWinnersMessage("o Wins!!!");
       clerInputStatesAfterAWinFunc();
     } else if (inputOne === "o" && inputFive === "o" && inputNine === "o") {
       setGameIsOver(true);
       setWinnersMessage("o Wins!!!");
+      setOTotalScore((prevScore) => prevScore + 1);
+
       clerInputStatesAfterAWinFunc();
     } else if (inputTwo === "o" && inputFive === "o" && inputEight === "o") {
       setGameIsOver(true);
+      setOTotalScore((prevScore) => prevScore + 1);
+
       setWinnersMessage("o Wins!!!");
       clerInputStatesAfterAWinFunc();
     } else if (inputThree === "o" && inputSix === "o" && inputNine === "o") {
       setGameIsOver(true);
       setWinnersMessage("o Wins!!!");
+      setOTotalScore((prevScore) => prevScore + 1);
+
       clerInputStatesAfterAWinFunc();
     } else if (inputThree === "o" && inputFive === "o" && inputSeven === "o") {
       setGameIsOver(true);
+      setOTotalScore((prevScore) => prevScore + 1);
+
       setWinnersMessage("o Wins!!!");
       clerInputStatesAfterAWinFunc();
     } else if (inputFour === "o" && inputFive === "o" && inputSix === "o") {
       setGameIsOver(true);
       setWinnersMessage("o Wins!!!");
       clerInputStatesAfterAWinFunc();
+      setOTotalScore((prevScore) => prevScore + 1);
     } else if (inputSeven === "o" && inputEight === "o" && inputNine === "o") {
       setGameIsOver(true);
+      setOTotalScore((prevScore) => prevScore + 1);
+
       setWinnersMessage("o Wins!!!");
       clerInputStatesAfterAWinFunc();
     } else if (
@@ -158,9 +169,14 @@ function App() {
 
   return (
     <div className="app">
+      <div className="scores__div">
+        <h2>X - {xTotalScore}</h2>
+
+        <h2>O - {oTotalScore}</h2>
+      </div>
+
       <div className="main__game">
         <h1>X and O</h1>
-
         {gameIsOver ? (
           <div>
             <h2>{winnersMessage}</h2>
@@ -177,61 +193,52 @@ function App() {
           <div className="main__card">
             <div>
               <input
-              readOnly
+                readOnly
                 value={inputOne}
                 onClick={() => playAGame(inputOne, setInputOne)}
-
               />
               <input
-              readOnly
-
+                readOnly
                 value={inputTwo}
                 onClick={() => playAGame(inputTwo, setInputTwo)}
               />
               <input
-              readOnly
-
+                readOnly
                 value={inputThree}
                 onClick={() => playAGame(inputThree, setInputThree)}
               />
             </div>
             <div>
               <input
-              readOnly
-
+                readOnly
                 value={inputFour}
                 onClick={() => playAGame(inputFour, setInputFour)}
               />
               <input
                 value={inputFive}
-              readOnly
-
+                readOnly
                 onClick={() => playAGame(inputFive, setInputFive)}
               />
               <input
                 value={inputSix}
-              readOnly
-
-                onClick={() =>playAGame(inputSix, setInputSix)}
+                readOnly
+                onClick={() => playAGame(inputSix, setInputSix)}
               />
             </div>
             <div>
               <input
                 value={inputSeven}
-              readOnly
-
-                onClick={() =>playAGame(inputSeven, setInputSeven)}
+                readOnly
+                onClick={() => playAGame(inputSeven, setInputSeven)}
               />
               <input
                 value={inputEight}
-              readOnly
-
-                onClick={() =>playAGame(inputEight, setInputEight)}
+                readOnly
+                onClick={() => playAGame(inputEight, setInputEight)}
               />
               <input
                 value={inputNine}
-              readOnly
-
+                readOnly
                 onClick={() => playAGame(inputNine, setInputNine)}
               />
             </div>

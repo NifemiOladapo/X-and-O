@@ -9,6 +9,12 @@
     height: 100vh;
     background-color: #f0f0f0;
   }
+
+  .app > .scores__div{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+  }
   
   /* Styles for the main game container */
   .main__game {
